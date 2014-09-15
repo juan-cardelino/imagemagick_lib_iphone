@@ -61,3 +61,6 @@ In Link Binary with Libraries under Build Phases, you may also need to add:
 <h2>Sample project</h2>
 
 A more or less updated project is found in the IM_Test subfolder
+
+<h2>Magick++ Compilation and testing</h2>
+See the wiki page for more information: <a href="https://github.com/juan-cardelino/imagemagick_lib_iphone/wiki">here</a>
