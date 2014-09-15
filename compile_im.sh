@@ -7,10 +7,13 @@ im_compile() {
 	echo "[|- CP STATIC/DYLIB $BUILDINGFOR]"
 	cp $LIBPATH_core $LIB_DIR/$LIBNAME_core.$BUILDINGFOR
 	cp $LIBPATH_wand $LIB_DIR/$LIBNAME_wand.$BUILDINGFOR
+	cp $LIBPATH_plusplus $LIB_DIR/$LIBNAME_plusplus.$BUILDINGFOR #(by JUANC)
 	if [[ "$BUILDINGFOR" == "armv7s" ]]; then  # copy include and config files
 		# copy the wand/ + core/ headers
 		cp -r $IM_LIB_DIR/include/ImageMagick-*/magick/ $LIB_DIR/include/magick/
 		cp -r $IM_LIB_DIR/include/ImageMagick-*/wand/ $LIB_DIR/include/wand/
+		# copy Magick++ (by JUANC)
+		cp -r $IM_LIB_DIR/include/ImageMagick-*/Magick++/ $LIB_DIR/include/Magick++/
 
 		# copy configuration files needed for certain functions
 		cp -r $IM_LIB_DIR/etc/ImageMagick-*/ $LIB_DIR/include/im_config/
@@ -29,6 +32,10 @@ im () {
 	LIBNAME_core=`basename $LIBPATH_core`
 	LIBPATH_wand=$IM_LIB_DIR/lib/libMagickWand-6.Q8.a
 	LIBNAME_wand=`basename $LIBPATH_wand`
+	# added for Magick++ (by JUANC)
+	LIBPATH_plusplus=$IM_LIB_DIR/lib/libMagick++-6.Q8.a
+	LIBNAME_plusplus=`basename $LIBPATH_plusplus`
+
 	
 	if [ "$1" == "armv7" ] || [ "$1" == "armv7s" ] || [ "$1" == "arm64" ]; then
 		save
@@ -38,8 +45,7 @@ im () {
 		export CFLAGS="$CFLAGS -DTARGET_OS_IPHONE"
 		export LDFLAGS="$LDFLAGS -L$LIB_DIR/jpeg_${BUILDINGFOR}_dylib/ -L$LIB_DIR/png_${BUILDINGFOR}_dylib/ -L$LIB_DIR/tiff_${BUILDINGFOR}_dylib/ -L$LIB_DIR"
 		echo "[|- CONFIG $BUILDINGFOR]"
-		try ./configure prefix=$IM_LIB_DIR --host=arm-apple-darwin --disable-opencl --disable-largefile --with-quantum-depth=8 --without-magick-plus-plus \
-				--without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype
+		try ./configure prefix=$IM_LIB_DIR --host=arm-apple-darwin --disable-opencl --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-fontconfig --without-tiff --without-lcms --without-lcms2 --without-lzma --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype
 		im_compile
 		restore
 	elif [ "$1" == "i386" ] || [ "$1" == "x86_64" ]; then
@@ -48,9 +54,7 @@ im () {
 		export CPPFLAGS="$CPPFLAGS -I$LIB_DIR/include/jpeg -I$LIB_DIR/include/png -I$LIB_DIR/include/tiff -I$SIMSDKROOT/usr/include"
 		export LDFLAGS="$LDFLAGS -L$LIB_DIR/jpeg_${BUILDINGFOR}_dylib/ -L$LIB_DIR/png_${BUILDINGFOR}_dylib/ -L$LIB_DIR/tiff_${BUILDINGFOR}_dylib/ -L$LIB_DIR"
 		echo "[|- CONFIG $BUILDINGFOR]"
-		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin --disable-opencl \
-			--disable-largefile --with-quantum-depth=8 --without-magick-plus-plus --without-perl --without-x \
-			--disable-shared --disable-openmp --without-bzlib --without-freetype --without-threads --disable-dependency-tracking
+		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin --disable-opencl --without-fontconfig --without-lcms --without-lcms2 --without-lzma  --without-tiff --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-threads --disable-dependency-tracking
 		im_compile
 		restore
 	else
@@ -79,6 +83,18 @@ im () {
 		done
 		# combine the static libraries
 		try lipo $accumul -create -output $LIB_DIR/libMagickWand.a
+		echo "[+ DONE]"
+	fi
+		# join libMagick++ (by JUANC)
+	joinlibs=$(check_for_archs $LIB_DIR/$LIBNAME_plusplus)
+	if [ $joinlibs == "OK" ]; then
+		echo "[|- COMBINE $ARCHS]"
+		accumul=""
+		for i in $ARCHS; do
+			accumul="$accumul -arch $i $LIB_DIR/$LIBNAME_plusplus.$i"
+		done
+		# combine the static libraries
+		try lipo $accumul -create -output $LIB_DIR/libMagick++.a
 		echo "[+ DONE]"
 	fi
 }

@@ -2,6 +2,7 @@
 
 armflags () {
 	export ARM_CC=$(xcrun -find -sdk iphoneos clang)
+	export ARM_CXX=$(xcrun -find -sdk iphoneos clang++)
 	export ARM_LD=$(xcrun -find -sdk iphoneos ld)
 
 	export ARM_CFLAGS="-arch $1"
@@ -17,7 +18,9 @@ armflags () {
 	
 	# apply ARM_XX values
 	export CC="$ARM_CC"
+	export CXX="$ARM_CXX"
 	export CFLAGS="$ARM_CFLAGS"
+	export CXXFLAGS="$ARM_CFLAGS" #for Magick++ (by JUANC)
 	export LD="$ARM_LD"
 	export LDFLAGS="$ARM_LDFLAGS"
 	
@@ -27,6 +30,7 @@ armflags () {
 
 intelflags () {
 	export INTEL_CC=$(xcrun -find -sdk iphonesimulator clang)
+	export INTEL_CXX=$(xcrun -find -sdk iphonesimulator clang++)
 	export INTEL_LD=$(xcrun -find -sdk iphonesimulator ld)
 	
 	export INTEL_CFLAGS="-arch $1"
@@ -34,8 +38,10 @@ intelflags () {
 	
 	# apply INTEL_CC values
 	export CC="$INTEL_CC"
+	export CXX="$INTEL_CXX"
 	export CCP="$INTEL_CC -E"
 	export CFLAGS="$INTEL_CFLAGS"
+	export CXXFLAGS="$INTEL_CFLAGS" #for Magick++ (by JUANC)
 	export LD="$INTEL_LD"
 	
 	# export what we are building for
