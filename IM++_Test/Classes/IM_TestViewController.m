@@ -138,7 +138,8 @@ CGImageRef createStandardImage(CGImageRef image) {
 - (void)posterizeImageWithCompression {
 	// Here we use JPEG compression.
 	NSLog(@"we're using JPEG compression");
-	[ImageMagickWrapper test:[UIImage imageNamed:@"iphone.png"]];
+
+
 	MagickWandGenesis();
 	magick_wand = NewMagickWand();
 	NSData * dataObject = UIImagePNGRepresentation([UIImage imageNamed:@"invasor_tiny.png"]);//UIImageJPEGRepresentation([imageViewButton imageForState:UIControlStateNormal], 90);
@@ -162,7 +163,7 @@ CGImageRef createStandardImage(CGImageRef image) {
 	MagickWandTerminus();
 	UIImage * image = [[UIImage alloc] initWithData:data];
 	[data release];
-	
+
 	[imageViewButton setImage:image forState:UIControlStateNormal];
 	[image release];
 }
@@ -329,7 +330,12 @@ CGImageRef createStandardImage(CGImageRef image) {
 #else
 	
 #ifdef USE_JPEG_COMPRESSION
-	[self posterizeImageWithCompression];
+	//added by JUANC to test magick++ interface
+	bool use_magick_plus_plus=true;
+	if(use_magick_plus_plus)
+		[self callMagickPlusPlus];
+	else
+		[self posterizeImageWithCompression];
 #else
 #ifdef UNUSUAL_NUMBER_OF_BITS
 	[self posterizeImageWithNewMethod];
@@ -339,6 +345,23 @@ CGImageRef createStandardImage(CGImageRef image) {
 #endif /* END USE_JPEG_COMPRESSION */
 	
 #endif /* END DO_BENCHMARKS */
+}
+
+- (void)callMagickPlusPlus {
+	NSLog(@"Magick++ test");
+
+	NSLog(@"Create a Magick++ from scratch and display it");
+	ImageMagickWrapper* imw=[ImageMagickWrapper alloc];
+	[imw setImage:[UIImage imageNamed:@"iphone.png"]];
+	[imw process];
+	UIImage * image=[imw getImage];
+
+	NSLog(@"Pass an UIImage to  Magick++ back and forth");
+	ImageMagickWrapper* imw2=[ImageMagickWrapper alloc];
+	UIImage * image2=[imw2 createUIImageFromMagick];
+
+	[imageViewButton setImage:image forState:UIControlStateNormal];
+	//[image release];
 }
 
 - (void)didReceiveMemoryWarning {
