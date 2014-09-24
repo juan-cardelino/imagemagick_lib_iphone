@@ -10,6 +10,12 @@
 		0D2212BD19D0A469001EB000 /* UImageToBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2212BC19D0A469001EB000 /* UImageToBuffer.m */; };
 		0D2212BF19D0A4DC001EB000 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2212BE19D0A4DC001EB000 /* CoreVideo.framework */; };
 		0D2212C119D0A51B001EB000 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2212C019D0A51B001EB000 /* CoreMedia.framework */; };
+		0D79E96A19D30A7A004FEA65 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96419D30A7A004FEA65 /* libjpeg.a */; };
+		0D79E96B19D30A7A004FEA65 /* libMagick++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96519D30A7A004FEA65 /* libMagick++.a */; };
+		0D79E96C19D30A7A004FEA65 /* libMagickCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96619D30A7A004FEA65 /* libMagickCore.a */; };
+		0D79E96D19D30A7A004FEA65 /* libMagickWand.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96719D30A7A004FEA65 /* libMagickWand.a */; };
+		0D79E96E19D30A7A004FEA65 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96819D30A7A004FEA65 /* libpng.a */; };
+		0D79E96F19D30A7A004FEA65 /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D79E96919D30A7A004FEA65 /* libtiff.a */; };
 		0DBF1ED319C688C400898300 /* magic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF1ED119C688C400898300 /* magic.cpp */; };
 		0DBF1EF819C6A73600898300 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBF1EF219C6A73600898300 /* libjpeg.a */; };
 		0DBF1EFC19C6A73600898300 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBF1EF619C6A73600898300 /* libpng.a */; };
@@ -20,7 +26,6 @@
 		0DBF1F1F19C6D3FF00898300 /* liblzma.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBF1F1E19C6D3FF00898300 /* liblzma.dylib */; };
 		0DBF1F2319C6D7AA00898300 /* libMagick++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBF1F2219C6D7AA00898300 /* libMagick++.a */; };
 		0DBF1F2619C6D8F900898300 /* ImageMagickWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF1F2519C6D8F900898300 /* ImageMagickWrapper.mm */; };
-		0DD4E79419C73633009D6C29 /* invasor_tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD4E79319C73633009D6C29 /* invasor_tiny.png */; };
 		1D3623260D0F684500981E51 /* IM_TestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* IM_TestAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -56,6 +61,12 @@
 		0D2212BC19D0A469001EB000 /* UImageToBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UImageToBuffer.m; sourceTree = "<group>"; };
 		0D2212BE19D0A4DC001EB000 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		0D2212C019D0A51B001EB000 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0D79E96419D30A7A004FEA65 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = IM/libjpeg.a; sourceTree = "<group>"; };
+		0D79E96519D30A7A004FEA65 /* libMagick++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libMagick++.a"; path = "IM/libMagick++.a"; sourceTree = "<group>"; };
+		0D79E96619D30A7A004FEA65 /* libMagickCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMagickCore.a; path = IM/libMagickCore.a; sourceTree = "<group>"; };
+		0D79E96719D30A7A004FEA65 /* libMagickWand.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMagickWand.a; path = IM/libMagickWand.a; sourceTree = "<group>"; };
+		0D79E96819D30A7A004FEA65 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = IM/libpng.a; sourceTree = "<group>"; };
+		0D79E96919D30A7A004FEA65 /* libtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtiff.a; path = IM/libtiff.a; sourceTree = "<group>"; };
 		0DBF1ED119C688C400898300 /* magic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = magic.cpp; sourceTree = "<group>"; };
 		0DBF1ED219C688C400898300 /* magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = magic.h; sourceTree = "<group>"; };
 		0DBF1ED519C6891000898300 /* Blob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blob.h; sourceTree = "<group>"; };
@@ -83,7 +94,6 @@
 		0DBF1F2219C6D7AA00898300 /* libMagick++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libMagick++.a"; path = "IM/libMagick++.a"; sourceTree = "<group>"; };
 		0DBF1F2419C6D8F900898300 /* ImageMagickWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMagickWrapper.h; sourceTree = "<group>"; };
 		0DBF1F2519C6D8F900898300 /* ImageMagickWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageMagickWrapper.mm; sourceTree = "<group>"; };
-		0DD4E79319C73633009D6C29 /* invasor_tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invasor_tiny.png; path = ../../../../develop/ios/examples/general/image_processing_1/invasor_tiny.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* IM_TestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IM_TestAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* IM_TestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IM_TestAppDelegate.m; sourceTree = "<group>"; };
@@ -258,13 +268,19 @@
 				0D2212C119D0A51B001EB000 /* CoreMedia.framework in Frameworks */,
 				0D2212BF19D0A4DC001EB000 /* CoreVideo.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				0D79E96E19D30A7A004FEA65 /* libpng.a in Frameworks */,
+				0D79E96F19D30A7A004FEA65 /* libtiff.a in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				0D79E96B19D30A7A004FEA65 /* libMagick++.a in Frameworks */,
 				0DBF1F1819C6D2D700898300 /* libMagickCore.a in Frameworks */,
 				0DBF1F1919C6D2D700898300 /* libMagickWand.a in Frameworks */,
 				0DBF1EFC19C6A73600898300 /* libpng.a in Frameworks */,
+				0D79E96A19D30A7A004FEA65 /* libjpeg.a in Frameworks */,
 				0DBF1EF819C6A73600898300 /* libjpeg.a in Frameworks */,
 				7525A24B167A615400487B91 /* libxml2.dylib in Frameworks */,
+				0D79E96C19D30A7A004FEA65 /* libMagickCore.a in Frameworks */,
+				0D79E96D19D30A7A004FEA65 /* libMagickWand.a in Frameworks */,
 				0DBF1F1D19C6D3DD00898300 /* libtiff.a in Frameworks */,
 				0DBF1F2319C6D7AA00898300 /* libMagick++.a in Frameworks */,
 				0DBF1F1F19C6D3FF00898300 /* liblzma.dylib in Frameworks */,
@@ -290,6 +306,19 @@
 				0DBF1ED219C688C400898300 /* magic.h */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		0D79E96319D30A5B004FEA65 /* ImageMagick */ = {
+			isa = PBXGroup;
+			children = (
+				0D79E96419D30A7A004FEA65 /* libjpeg.a */,
+				0D79E96519D30A7A004FEA65 /* libMagick++.a */,
+				0D79E96619D30A7A004FEA65 /* libMagickCore.a */,
+				0D79E96719D30A7A004FEA65 /* libMagickWand.a */,
+				0D79E96819D30A7A004FEA65 /* libpng.a */,
+				0D79E96919D30A7A004FEA65 /* libtiff.a */,
+			);
+			name = ImageMagick;
 			sourceTree = "<group>";
 		};
 		0DBF1ED419C6891000898300 /* Magick++ */ = {
@@ -325,6 +354,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				0D79E96319D30A5B004FEA65 /* ImageMagick */,
 				61DFE77618E196BD00374E8F /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -347,7 +377,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0DD4E79319C73633009D6C29 /* invasor_tiny.png */,
 				61EDE88F100CBC30001C64A9 /* benchmarks.txt */,
 				61EC622C101EF99F00AE41D8 /* iphone.tif */,
 				6188D5C310066BB300BA109F /* iphone.png */,
@@ -663,7 +692,6 @@
 				61EC622D101EF99F00AE41D8 /* iphone.tif in Resources */,
 				6130FEEA191954D400D54380 /* francais.xml in Resources */,
 				6130FEE9191954D400D54380 /* english.xml in Resources */,
-				0DD4E79419C73633009D6C29 /* invasor_tiny.png in Resources */,
 				6130FEED191954D400D54380 /* magic.xml in Resources */,
 				6130FEF3191954D400D54380 /* type-ghostscript.xml in Resources */,
 				6130FEEE191954D400D54380 /* mime.xml in Resources */,
