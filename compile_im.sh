@@ -54,7 +54,7 @@ im () {
 		export CPPFLAGS="$CPPFLAGS -I$LIB_DIR/include/jpeg -I$LIB_DIR/include/png -I$LIB_DIR/include/tiff -I$SIMSDKROOT/usr/include"
 		export LDFLAGS="$LDFLAGS -L$LIB_DIR/jpeg_${BUILDINGFOR}_dylib/ -L$LIB_DIR/png_${BUILDINGFOR}_dylib/ -L$LIB_DIR/tiff_${BUILDINGFOR}_dylib/ -L$LIB_DIR"
 		echo "[|- CONFIG $BUILDINGFOR]"
-		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin --disable-opencl --without-fontconfig --without-lcms --without-lcms2 --without-lzma  --without-tiff --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-threads --disable-dependency-tracking
+		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin --disable-opencl --without-fontconfig --without-lcms --without-lcms2 --without-lzma  --without-tiff --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-threads --disable-dependency-tracking --without-fftw
 		im_compile
 		restore
 	else
