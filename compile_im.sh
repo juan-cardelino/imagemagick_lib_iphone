@@ -36,6 +36,7 @@ im () {
 	LIBPATH_plusplus=$IM_LIB_DIR/lib/libMagick++-6.Q8.a
 	LIBNAME_plusplus=`basename $LIBPATH_plusplus`
 
+	JFC_FLAGS="--disable-opencl --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-fontconfig --without-tiff --without-lcms --without-lcms2 --without-lzma --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-openexr --without-pango" #--without-png --without-jpeg --without-fftw
 	
 	if [ "$1" == "armv7" ] || [ "$1" == "armv7s" ] || [ "$1" == "arm64" ]; then
 		save
@@ -45,7 +46,7 @@ im () {
 		export CFLAGS="$CFLAGS -DTARGET_OS_IPHONE"
 		export LDFLAGS="$LDFLAGS -L$LIB_DIR/jpeg_${BUILDINGFOR}_dylib/ -L$LIB_DIR/png_${BUILDINGFOR}_dylib/ -L$LIB_DIR/tiff_${BUILDINGFOR}_dylib/ -L$LIB_DIR"
 		echo "[|- CONFIG $BUILDINGFOR]"
-		try ./configure prefix=$IM_LIB_DIR --host=arm-apple-darwin --disable-opencl --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-fontconfig --without-tiff --without-lcms --without-lcms2 --without-lzma --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype
+		try ./configure prefix=$IM_LIB_DIR --host=arm-apple-darwin $JFC_FLAGS 
 		im_compile
 		restore
 	elif [ "$1" == "i386" ] || [ "$1" == "x86_64" ]; then
@@ -54,7 +55,7 @@ im () {
 		export CPPFLAGS="$CPPFLAGS -I$LIB_DIR/include/jpeg -I$LIB_DIR/include/png -I$LIB_DIR/include/tiff -I$SIMSDKROOT/usr/include"
 		export LDFLAGS="$LDFLAGS -L$LIB_DIR/jpeg_${BUILDINGFOR}_dylib/ -L$LIB_DIR/png_${BUILDINGFOR}_dylib/ -L$LIB_DIR/tiff_${BUILDINGFOR}_dylib/ -L$LIB_DIR"
 		echo "[|- CONFIG $BUILDINGFOR]"
-		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin --disable-opencl --without-fontconfig --without-lcms --without-lcms2 --without-lzma  --without-tiff --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-threads --disable-dependency-tracking --without-fftw
+		try ./configure prefix=$IM_LIB_DIR --host=${BUILDINGFOR}-apple-darwin  --disable-dependency-tracking $JFC_FLAGS 
 		im_compile
 		restore
 	else
