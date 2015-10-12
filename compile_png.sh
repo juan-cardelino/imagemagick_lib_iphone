@@ -28,8 +28,12 @@ png () {
 		save
 		armflags $1
 		echo "[|- CONFIG $BUILDINGFOR]"
+		echo "$PNG_LIB_DIR"
 		export CC="$(xcode-select -print-path)/usr/bin/gcc" # override clang
-		try ./configure prefix=$PNG_LIB_DIR --enable-shared --enable-static --host=arm-apple-darwin
+		echo  "$CC"
+		echo "./configure prefix=$PNG_LIB_DIR --enable-shared --enable-static --host=arm-apple-darwin"
+		./configure --prefix=$PNG_LIB_DIR --enable-shared --enable-static --host=arm-apple-darwin
+		echo "output: $?"
 		png_compile
 		restore
 	elif [ "$1" == "i386" ] || [ "$1" == "x86_64" ]; then
@@ -37,7 +41,7 @@ png () {
 		intelflags $1
 		echo "[|- CONFIG $BUILDINGFOR]"
 		export CC="$(xcode-select -print-path)/usr/bin/gcc" # override clang
-		try ./configure prefix=$PNG_LIB_DIR --enable-shared --enable-static --host=${BUILDINGFOR}-apple-darwin
+		try ./configure --prefix=$PNG_LIB_DIR --enable-shared --enable-static --host=${BUILDINGFOR}-apple-darwin
 		png_compile
 		restore
 	else

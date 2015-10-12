@@ -20,9 +20,9 @@ armflags () {
 	export CC="$ARM_CC"
 	export CXX="$ARM_CXX"
 	export CFLAGS="$ARM_CFLAGS"
-	export CXXFLAGS="$ARM_CFLAGS" #for Magick++ (by JUANC)
+	export CXXFLAGS="$ARM_CFLAGS -std=libstdc++" #for Magick++ (by JUANC)
 	export LD="$ARM_LD"
-	export LDFLAGS="$ARM_LDFLAGS"
+	export LDFLAGS="$ARM_LDFLAGS -std=libstdc++"
 	
 	# export what we are building for
 	export BUILDINGFOR="$1"
@@ -38,12 +38,12 @@ intelflags () {
 	
 	# apply INTEL_CC values
 	export CC="$INTEL_CC"
-	export CXX="$INTEL_CXX"
+	export CXX="$INTEL_CXX "
 	export CCP="$INTEL_CC -E"
 	export CFLAGS="$INTEL_CFLAGS"
-	export CXXFLAGS="$INTEL_CFLAGS" #for Magick++ (by JUANC)
-	export LD="$INTEL_LD"
-	
+	export CXXFLAGS="$INTEL_CFLAGS -std=libstdc++" #for Magick++ (by JUANC)
+	export LD="$INTEL_LD -std=libstdc++"
+ 	
 	# export what we are building for
 	export BUILDINGFOR="$1"
 }
