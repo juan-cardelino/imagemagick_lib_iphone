@@ -21,7 +21,8 @@ if [ ! -d $DEVROOT ]; then
 fi
 
 # iOS SDK Environmnent
-export SDKVER=`xcodebuild -showsdks | fgrep "iphoneos" | tail -n 1 | awk '{print $2}'`
+#export SDKVER=`xcodebuild -showsdks | fgrep "iphoneos" | tail -n 1 | awk '{print $2}'`
+export SDKVER="8.1"
 export DEVROOT=`xcode-select -print-path`/Platforms/iPhoneOS.platform/Developer
 export IOSSDKROOT=$DEVROOT/SDKs/iPhoneOS$SDKVER.sdk
 

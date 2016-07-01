@@ -36,7 +36,7 @@ im () {
 	LIBPATH_plusplus=$IM_LIB_DIR/lib/libMagick++-6.Q8.a
 	LIBNAME_plusplus=`basename $LIBPATH_plusplus`
 
-	JFC_FLAGS="--disable-opencl --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-fontconfig --without-tiff --without-lcms --without-lcms2 --without-lzma --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-openexr --without-pango" #--without-png --without-jpeg --without-fftw
+	JFC_FLAGS="--disable-opencl --disable-largefile --with-quantum-depth=8 --with-magick-plus-plus --without-fontconfig --without-tiff --without-lcms --without-lcms2 --without-lzma --without-perl --without-x --disable-shared --disable-openmp --without-bzlib --without-freetype --without-openexr --without-pango --without-png --without-jpeg --without-fftw" 
 	
 	if [ "$1" == "armv7" ] || [ "$1" == "armv7s" ] || [ "$1" == "arm64" ]; then
 		save
